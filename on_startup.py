@@ -38,13 +38,13 @@ def populate_jupyter_data_directory(data_dir):
 
 
 # def swap_waiting_page():
-#     subprocess.call(["mv", "/home/higlass/projects/higlass-website/app/index.html",
-#                      "/home/higlass/projects/higlass-website/index.html"])
+#     subprocess.call(["mv", "/opt/conda/share/jupyter/hub/templates/page.html.bak",
+#                      "/opt/conda/share/jupyter/hub/templates/page.html"])
 
 if __name__ == '__main__':
     data_dir = "/home/jovyan/refinery-data/"
 
     populate_jupyter_data_directory(data_dir)
 
-    # # Don't switch page until data ingested
+    # Don't switch page until data ingested
     # swap_waiting_page()

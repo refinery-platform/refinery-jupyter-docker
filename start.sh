@@ -4,7 +4,9 @@
 
 set -e
 
-# Ingest Files from Refinery
+# # Ingest Files from Refinery
+# cp /opt/conda/share/jupyter/hub/templates/page.html /opt/conda/share/jupyter/hub/templates/page.html.bak
+# cp /home/jovyan/page.html /opt/conda/share/jupyter/hub/templates/page.html
 python ~/on_startup.py
 
 # Handle special flags if we're root
