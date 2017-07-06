@@ -37,9 +37,14 @@ def populate_jupyter_data_directory(data_dir):
             response.close()
 
 
-# def swap_waiting_page():
-#     subprocess.call(["mv", "/opt/conda/share/jupyter/hub/templates/page.html.bak",
-#                      "/opt/conda/share/jupyter/hub/templates/page.html"])
+def swap_waiting_page():
+    subprocess.call(
+        [
+            "mv",
+            "/opt/conda/share/jupyter/hub/templates/page.html.bak",
+            "/opt/conda/share/jupyter/hub/templates/page.html"
+        ]
+    )
 
 if __name__ == '__main__':
     data_dir = "/home/jovyan/refinery-data/"
