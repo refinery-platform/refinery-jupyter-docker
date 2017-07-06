@@ -13,8 +13,10 @@ class CommandlineTest(unittest.TestCase):
             **os.environ)
         os.environ['PORT'] = subprocess.check_output(
             command, shell=True).strip().decode('utf-8')
-        self.url = 'http://localhost:{PORT}/api/v1/tilesets/'.format(
+        self.url = 'http://localhost:{PORT}/tree'.format(**os.environ)
+        self.files_url = 'http://localhost:{PORT}/api/contents/refinery-data'.format(
             **os.environ)
+
         while True:
             if 0 == subprocess.call('curl --fail --silent ' + self.url + ' > /dev/null', shell=True):
                 break
@@ -30,6 +32,13 @@ class CommandlineTest(unittest.TestCase):
     # Tests:
     def test_hello(self):
         self.assertRun('echo "hello?"', [r'hello'])
+
+    # Test if the data we specify in input.json gets ingested properly by
+    # jupyter upon container startup
+    def test_data_ingested(self):
+        time.sleep(5)
+        response = requests.get(self.files_url)
+        self.assertIn("pep-0020.txt", response.content)
 
 
 if __name__ == '__main__':
