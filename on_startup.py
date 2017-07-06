@@ -13,7 +13,7 @@ def populate_jupyter_data_directory(data_dir):
     Download remote files specified by urls in the input.json file
     :param data_dir: <String> Path to directory to populate with data
     """
-    with open("/home/jovyan/input.json") as f:
+    with open("/tmp/input.json") as f:
         config_data = json.loads(f.read())
 
     for url in config_data["file_relationships"]:

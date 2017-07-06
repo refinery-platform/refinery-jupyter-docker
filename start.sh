@@ -5,9 +5,11 @@
 set -e
 
 # # Ingest Files from Refinery
-# cp /opt/conda/share/jupyter/hub/templates/page.html /opt/conda/share/jupyter/hub/templates/page.html.bak
-# cp /home/jovyan/page.html /opt/conda/share/jupyter/hub/templates/page.html
-python ~/on_startup.py
+cp /opt/conda/share/jupyter/hub/templates/page.html /opt/conda/share/jupyter/hub/templates/page.html.bak
+cp /tmp/page.html /opt/conda/share/jupyter/hub/templates/page.html
+
+python /tmp/on_startup.py
+
 
 # Handle special flags if we're root
 if [ $UID == 0 ] ; then
